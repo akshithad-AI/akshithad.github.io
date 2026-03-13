@@ -260,6 +260,14 @@
       background: var(--accent);
     }
 
+    .cv-frame {
+      width: 100%;
+      height: 560px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+    }
+
     .akira-preview {
       margin-top: 30px;
       text-align: center;
@@ -467,6 +475,10 @@
         padding: 22px;
       }
 
+      .cv-frame {
+        height: 420px;
+      }
+
       .akira-bubble {
         right: 14px;
         bottom: 14px;
@@ -499,6 +511,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">QA Portfolio</a>
+        <a href="#cv">CV</a>
         <a href="#akira">AKIRA</a>
         <a href="#mba">MBA</a>
         <a href="#journey">Journey</a>
@@ -519,7 +532,7 @@
         </p>
         <div class="cta">
           <a class="btn primary" href="#projects">Explore My QA Portfolio</a>
-          <a class="btn secondary" href="Akshitha_Dharmarathne_QA_CV.docx" download>Download CV</a>
+          <a class="btn secondary" href="Akshitha_Dharmarathne_QA_CV.pdf" download>Download CV</a>
           <a class="btn secondary" href="#akira">Meet AKIRA</a>
         </div>
       </div>
@@ -553,6 +566,24 @@
         <div class="card">
           <h3>Future Goal</h3>
           <p>To build AiQA Labs into a trusted AI-powered QA and testing consultancy that creates measurable client value.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <h2>Professional CV</h2>
+      <p class="section-text">
+        You can preview my latest professional CV below or download the full version.
+      </p>
+      <div class="card" style="text-align:center;">
+        <iframe
+          src="Akshitha_Dharmarathne_QA_CV.pdf"
+          class="cv-frame"
+          title="Akshitha CV Preview">
+        </iframe>
+
+        <div style="margin-top:20px;">
+          <a class="btn primary" href="Akshitha_Dharmarathne_QA_CV.pdf" download>Download CV</a>
         </div>
       </div>
     </section>
