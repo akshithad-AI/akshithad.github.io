@@ -77,35 +77,6 @@
       padding: 72px 0 40px;
     }
 
-    /* AKIRA floating chat button */
-
-.akira-bubble {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: linear-gradient(135deg, #f97316, #fb923c);
-  color: white;
-  padding: 14px 18px;
-  border-radius: 30px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-  transition: transform 0.2s ease;
-  z-index: 999;
-}
-
-.akira-bubble:hover {
-  transform: translateY(-3px);
-}
-    @keyframes akiraPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.akira-bubble {
-  animation: akiraPulse 2.5s infinite;
-}
     .hero {
       display: grid;
       grid-template-columns: 1.3fr 0.9fr;
@@ -256,15 +227,17 @@
       text-decoration: none;
       font-weight: 700;
     }
-.card a {
-  color: #fdba74;
-  text-decoration: none;
-  font-weight: 600;
-}
 
-.card a:hover {
-  text-decoration: underline;
-}
+    .card a {
+      color: #fdba74;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
     .timeline {
       border-left: 2px solid var(--line);
       padding-left: 20px;
@@ -287,6 +260,137 @@
       background: var(--accent);
     }
 
+    .akira-preview {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .akira-preview img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+    }
+
+    .akira-chat {
+      margin-top: 24px;
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .akira-chat h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
+    .akira-messages {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      min-height: 240px;
+      background: rgba(255,255,255,0.02);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .msg {
+      padding: 12px 14px;
+      border-radius: 16px;
+      max-width: 85%;
+      font-size: 0.95rem;
+    }
+
+    .msg.user {
+      align-self: flex-end;
+      background: rgba(249, 115, 22, 0.15);
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      color: #fed7aa;
+    }
+
+    .msg.bot {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .akira-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .akira-controls input {
+      flex: 1;
+      min-width: 220px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      outline: none;
+    }
+
+    .akira-controls button,
+    .quick-btn {
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+    }
+
+    .quick-questions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .quick-btn {
+      background: rgba(249, 115, 22, 0.12);
+      color: #fed7aa;
+      border: 1px solid rgba(249, 115, 22, 0.25);
+    }
+
+    .quick-btn:hover,
+    .akira-controls button:hover {
+      transform: translateY(-1px);
+    }
+
+    .akira-bubble {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      color: white;
+      padding: 14px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease;
+      z-index: 999;
+      animation: akiraPulse 2.5s infinite;
+    }
+
+    .akira-bubble:hover {
+      transform: translateY(-3px);
+    }
+
+    @keyframes akiraPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
     footer {
       padding: 36px 0 60px;
       color: var(--muted);
@@ -301,6 +405,12 @@
       header {
         padding-top: 48px;
       }
+
+      .akira-bubble {
+        right: 16px;
+        bottom: 16px;
+        padding: 12px 14px;
+      }
     }
   </style>
 </head>
@@ -309,14 +419,14 @@
     <div class="container nav-inner">
       <div class="brand">Akshitha<span>.</span></div>
       <div class="nav-links">
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">QA Portfolio</a>
-<a href="#akira">AKIRA</a>
-<a href="#mba">MBA</a>
-<a href="#journey">Journey</a>
-  <a href="#contact">Contact</a>
-</div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">QA Portfolio</a>
+        <a href="#akira">AKIRA</a>
+        <a href="#mba">MBA</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -331,7 +441,7 @@
           where I share my background, projects, and future vision.
         </p>
         <div class="cta">
-          <a class="btn primary" href="#projects">View My QA Portfolio</a>
+          <a class="btn primary" href="#projects">Explore My QA Portfolio</a>
           <a class="btn secondary" href="#akira">Meet AKIRA</a>
         </div>
       </div>
@@ -390,7 +500,9 @@
 
     <section id="projects">
       <h2>QA Portfolio</h2>
-      <p class="section-text">A selection of sample QA artifacts, portfolio documents, and future-focused work that reflect my testing approach, documentation style, and professional growth.</p>
+      <p class="section-text">
+        A selection of sample QA artifacts, portfolio documents, and future-focused work that reflect my testing approach, documentation style, and professional growth.
+      </p>
       <div class="grid-2">
         <div class="card project">
           <h3>QA Test Case Sample</h3>
@@ -405,72 +517,90 @@
         </div>
 
         <div class="card project">
-          <h3>AiQA Labs Vision</h3>
-          <p>A future-focused concept showing how AI can improve software testing, reporting, and quality visibility.</p>
-          <a href="#">Add project link later</a>
+          <h3>SIT Testing Checklist</h3>
+          <p>A structured checklist used during System Integration Testing to validate key workflows and dependencies.</p>
+          <a href="sit_testing_checklist.xlsx" download>Download SIT Checklist</a>
         </div>
 
         <div class="card project">
-          <h3>MBA Strategy Work</h3>
-          <p>Selected academic work covering strategic management, leadership, and business analysis frameworks.</p>
-          <a href="#">Add project link later</a>
+          <h3>Test Plan Template</h3>
+          <p>A sample QA test plan showing scope, environment, test strategy, entry criteria, and exit criteria.</p>
+          <a href="test_plan_template.pdf" download>Download Test Plan Template</a>
         </div>
       </div>
     </section>
+
     <section id="akira">
-      <div class="card" style="margin-top:20px;">
-  <strong>AKIRA:</strong> 
-  Hello! I'm AKIRA, Akshitha's future AI portfolio assistant. 
-  Soon you'll be able to chat with me to explore his QA work, MBA research, and AiQA Labs vision.
-</div>
-  <h2>AKIRA AI Assistant</h2>
-  <p class="section-text">
-    AKIRA is my upcoming AI-powered portfolio assistant. In the future, visitors will be able to chat with AKIRA to learn about my QA experience, banking domain knowledge, MBA journey, and the vision behind AiQA Labs.
-  </p>
+      <h2>AKIRA AI Assistant</h2>
 
-  <div style="margin-top:30px; text-align:center;">
-    <img src="akira-preview.png"
-         alt="Future AKIRA AI Assistant Preview"
-         style="width:100%; max-width:900px; border-radius:20px; border:1px solid #243041;">
-  </div>
+      <div class="card" style="margin-bottom:20px;">
+        <strong>AKIRA:</strong>
+        Hello! I'm AKIRA, Akshitha's portfolio assistant. I can already answer a few common questions about his QA experience, banking background, MBA journey, and future vision.
+      </div>
 
-  <p class="section-text" style="text-align:center; margin-top:16px;">
-    Future preview of the AKIRA AI assistant interface that will guide visitors through my portfolio and professional journey.
-  </p>
+      <p class="section-text">
+        AKIRA is my upcoming AI-powered portfolio assistant. In the future, visitors will be able to chat with AKIRA to learn about my QA experience, banking domain knowledge, MBA journey, and the vision behind AiQA Labs.
+      </p>
 
-  <div class="grid-2">
-    <div class="card project">
-      <h3>What AKIRA Will Do</h3>
-      <p>AKIRA will answer questions about my professional experience, QA portfolio, banking systems knowledge, and MBA research.</p>
-    </div>
+      <div class="akira-preview">
+        <img src="akira-preview.png" alt="Future AKIRA AI Assistant Preview">
+      </div>
 
-    <div class="card project">
-      <h3>Future Vision</h3>
-      <p>AKIRA will eventually evolve into a real AI assistant that helps visitors explore my work and understand how AI can improve software quality and testing processes.</p>
-    </div>
-  </div>
+      <p class="section-text" style="text-align:center; margin-top:16px;">
+        Future preview of the AKIRA AI assistant interface that will guide visitors through my portfolio and professional journey.
+      </p>
 
-  <div class="card" style="margin-top:20px;">
-    <h3>🚀 Coming Soon</h3>
-    <p>A fully interactive AI chatbot will be integrated into this website in the future.</p>
-  </div>
-</section>
-<section id="mba">
-  <h2>MBA Research & Strategy Work</h2>
-  <p class="section-text">Selected academic work covering strategic management, leadership, business analysis, and market evaluation.</p>
-  <div class="grid-2">
-    <div class="card project">
-      <h3>Strategic Management Assignment</h3>
-      <p>Analysis covering competitive strategy, market environment, and business growth frameworks.</p>
-      <a href="#" target="_blank">Add MBA PDF later</a>
-    </div>
-    <div class="card project">
-      <h3>Leadership & Decision-Making Study</h3>
-      <p>Academic work exploring leadership styles, strategic thinking, and decision-making in business contexts.</p>
-      <a href="#" target="_blank">Add MBA PDF later</a>
-    </div>
-  </div>
-</section>
+      <div class="grid-2">
+        <div class="card project">
+          <h3>What AKIRA Will Do</h3>
+          <p>AKIRA will answer questions about my professional experience, QA portfolio, banking systems knowledge, and MBA research.</p>
+        </div>
+
+        <div class="card project">
+          <h3>Future Vision</h3>
+          <p>AKIRA will eventually evolve into a real AI assistant that helps visitors explore my work and understand how AI can improve software quality and testing processes.</p>
+        </div>
+      </div>
+
+      <div class="akira-chat">
+        <h3>🤖 Chat with AKIRA</h3>
+        <div id="akiraMessages" class="akira-messages">
+          <div class="msg bot">Hello! I’m AKIRA. Ask me about Akshitha’s QA experience, banking background, MBA studies, or AiQA Labs vision.</div>
+        </div>
+
+        <div class="akira-controls">
+          <input id="akiraInput" type="text" placeholder="Ask AKIRA something..." />
+          <button onclick="sendAkiraMessage()">Send</button>
+        </div>
+
+        <div class="quick-questions">
+          <button class="quick-btn" onclick="askQuickQuestion('Who is Akshitha?')">Who is Akshitha?</button>
+          <button class="quick-btn" onclick="askQuickQuestion('What QA experience does he have?')">QA experience</button>
+          <button class="quick-btn" onclick="askQuickQuestion('What is AiQA Labs?')">What is AiQA Labs?</button>
+          <button class="quick-btn" onclick="askQuickQuestion('What is his MBA journey?')">MBA journey</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="mba">
+      <h2>MBA Research & Strategy Work</h2>
+      <p class="section-text">
+        Selected academic work covering strategic management, leadership, business analysis, and market evaluation.
+      </p>
+      <div class="grid-2">
+        <div class="card project">
+          <h3>Strategic Management Assignment</h3>
+          <p>Analysis covering competitive strategy, market environment, and business growth frameworks.</p>
+          <a href="#" target="_blank">Add MBA PDF later</a>
+        </div>
+        <div class="card project">
+          <h3>Leadership & Decision-Making Study</h3>
+          <p>Academic work exploring leadership styles, strategic thinking, and decision-making in business contexts.</p>
+          <a href="#" target="_blank">Add MBA PDF later</a>
+        </div>
+      </div>
+    </section>
+
     <section id="journey">
       <h2>My Journey</h2>
       <div class="card timeline">
@@ -482,41 +612,113 @@
 
         <div class="timeline-item">
           <h3>Retail & Corporate Banking Operations</h3>
-          <p><strong>2014 — 2023</strong></p>
+          <p><strong>2014 — 2024</strong></p>
           <p>Worked for about ten years in retail and corporate banking operations. During this time I developed deep knowledge of banking workflows, financial systems, risk awareness, customer operations, and enterprise financial processes.</p>
         </div>
 
         <div class="timeline-item">
           <h3>Software Quality Assurance in Banking Technology</h3>
-          <p><strong>2023 — Present</strong></p>
+          <p><strong>2024 — Present</strong></p>
           <p>Leveraging my banking domain expertise, I transitioned into Software Quality Assurance within the banking technology domain. My focus includes manual testing, system integration testing (SIT), defect reporting, validation of financial transactions, and ensuring high-quality banking software systems.</p>
         </div>
       </div>
     </section>
 
-  <section id="contact">
-  <h2>Contact</h2>
-  <p class="section-text">Feel free to connect with me for QA opportunities, collaborations, or professional networking.</p>
-  <div class="card">
-    <p>
-      <strong>Email:</strong>
-      <a href="mailto:akshithadha@gmail.com">akshithadha@gmail.com</a>
-    </p>
-    <p>
-      <strong>LinkedIn:</strong>
-      <a href="https://www.linkedin.com/in/akshitha-dharmarathne-03614b177/" target="_blank" rel="noopener noreferrer">
-        View My LinkedIn Profile
-      </a>
-    </p>
-    <p><strong>Location:</strong> Qatar</p>
-  </div>
-</section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="section-text">Feel free to connect with me for QA opportunities, collaborations, or professional networking.</p>
+      <div class="card">
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:akshithadha@gmail.com">akshithadha@gmail.com</a>
+        </p>
+        <p>
+          <strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/akshitha-dharmarathne-03614b177/" target="_blank" rel="noopener noreferrer">View My LinkedIn Profile</a>
+        </p>
+        <p><strong>Location:</strong> Qatar</p>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container">
       © 2026 Akshitha Dharmarathne • Built as a personal portfolio website.
     </div>
   </footer>
-  <a href="#akira" class="akira-bubble">🤖 Chat with AKIRA</a>
+
+  <a href="#akira" class="akira-bubble" onclick="document.getElementById('akira').scrollIntoView({behavior: 'smooth'}); return false;">🤖 Chat with AKIRA</a>
+
+  <script>
+    const akiraInput = document.getElementById("akiraInput");
+    const akiraMessages = document.getElementById("akiraMessages");
+
+    function addMessage(text, sender) {
+      const msg = document.createElement("div");
+      msg.className = "msg " + sender;
+      msg.textContent = text;
+      akiraMessages.appendChild(msg);
+      akiraMessages.scrollTop = akiraMessages.scrollHeight;
+    }
+
+    function getAkiraReply(question) {
+      const q = question.toLowerCase();
+
+      if (q.includes("who is akshitha")) {
+        return "Akshitha Dharmarathne is a Software QA Engineer with banking domain experience, an MBA learner, and the future founder behind the AiQA Labs vision.";
+      }
+
+      if (q.includes("qa") || q.includes("testing") || q.includes("experience")) {
+        return "Akshitha works in Software Quality Assurance within the banking technology domain, with strengths in manual testing, system integration testing, defect reporting, and test documentation.";
+      }
+
+      if (q.includes("bank") || q.includes("banking")) {
+        return "He has around ten years of retail and corporate banking experience, which gives him strong domain knowledge for financial systems and fintech-related QA work.";
+      }
+
+      if (q.includes("mba")) {
+        return "Akshitha is also completing his MBA, with work focused on strategic management, leadership, business analysis, and long-term growth thinking.";
+      }
+
+      if (q.includes("aiqa") || q.includes("labs")) {
+        return "AiQA Labs is Akshitha’s future vision for an AI-powered software testing and quality consultancy focused on combining human QA expertise with modern AI capabilities.";
+      }
+
+      if (q.includes("audit")) {
+        return "Before banking and QA, Akshitha began his career in audit and financial assurance, where he built strong analytical thinking and attention to detail.";
+      }
+
+      if (q.includes("contact") || q.includes("email") || q.includes("linkedin")) {
+        return "You can contact Akshitha via email at akshithadha@gmail.com or through his LinkedIn profile in the Contact section of this website.";
+      }
+
+      return "Thanks for your question. Right now I’m a portfolio assistant with built-in answers. Soon I’ll become a more advanced AI assistant for Akshitha’s website.";
+    }
+
+    function sendAkiraMessage() {
+      const question = akiraInput.value.trim();
+      if (!question) return;
+
+      addMessage(question, "user");
+
+      setTimeout(() => {
+        const reply = getAkiraReply(question);
+        addMessage(reply, "bot");
+      }, 400);
+
+      akiraInput.value = "";
+    }
+
+    function askQuickQuestion(question) {
+      akiraInput.value = question;
+      sendAkiraMessage();
+    }
+
+    akiraInput.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        sendAkiraMessage();
+      }
+    });
+  </script>
 </body>
 </html>
