@@ -35,7 +35,7 @@
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
       backdrop-filter: blur(10px);
       background: rgba(2, 6, 23, 0.85);
       border-bottom: 1px solid var(--line);
@@ -76,26 +76,7 @@
     header {
       padding: 72px 0 40px;
     }
-#scrollTopBtn {
-  position: fixed;
-  bottom: 90px;
-  right: 25px;
-  display: none;
-  background: linear-gradient(135deg, #f97316, #fb923c);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 46px;
-  height: 46px;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-  z-index: 998;
-}
 
-#scrollTopBtn:hover {
-  transform: scale(1.1);
-}
     .hero {
       display: grid;
       grid-template-columns: 1.3fr 0.9fr;
@@ -187,6 +168,7 @@
 
     section {
       padding: 26px 0;
+      scroll-margin-top: 90px;
     }
 
     h2 {
@@ -287,6 +269,20 @@
       background: rgba(255,255,255,0.02);
     }
 
+    #akira {
+      position: relative;
+    }
+
+    #akira::before {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      background: radial-gradient(circle at center, rgba(249,115,22,0.12), transparent 60%);
+      filter: blur(28px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
     .akira-preview {
       margin-top: 30px;
       text-align: center;
@@ -297,6 +293,12 @@
       max-width: 900px;
       border-radius: 20px;
       border: 1px solid var(--line);
+      box-shadow: 0 0 0 rgba(249,115,22,0), 0 0 25px rgba(249,115,22,0.08);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .akira-preview img:hover {
+      box-shadow: 0 0 30px rgba(249,115,22,0.16), 0 0 60px rgba(251,146,60,0.08);
     }
 
     .akira-chat {
@@ -305,7 +307,12 @@
       border: 1px solid var(--line);
       border-radius: 24px;
       padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      box-shadow: 0 0 0 rgba(249,115,22,0), 0 0 25px rgba(249,115,22,0.08), 0 10px 30px rgba(0,0,0,0.25);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .akira-chat:hover {
+      box-shadow: 0 0 30px rgba(249,115,22,0.16), 0 0 60px rgba(251,146,60,0.08), 0 10px 30px rgba(0,0,0,0.25);
     }
 
     #akira-chatbox {
@@ -442,6 +449,28 @@
       100% { transform: scale(1); }
     }
 
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 90px;
+      right: 25px;
+      display: none;
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      z-index: 998;
+      transition: transform 0.2s ease;
+    }
+
+    #scrollTopBtn:hover {
+      transform: scale(1.1);
+    }
+
     footer {
       padding: 36px 0 60px;
       color: var(--muted);
@@ -503,6 +532,14 @@
         bottom: 14px;
         padding: 12px 14px;
         font-size: 0.92rem;
+      }
+
+      #scrollTopBtn {
+        right: 14px;
+        bottom: 72px;
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
       }
 
       .akira-controls {
@@ -600,7 +637,6 @@
           class="cv-frame"
           title="Akshitha CV Preview">
         </iframe>
-
         <div style="margin-top:20px;">
           <a class="btn primary" href="Akshitha_Dharmarathne_QA_CV.pdf" download>Download CV</a>
         </div>
@@ -777,6 +813,8 @@
 
   <a href="#akira-chatbox" class="akira-bubble" onclick="document.getElementById('akira-chatbox').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;">🤖 Chat with AKIRA</a>
 
+  <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
+
   <script>
     const akiraInput = document.getElementById("akiraInput");
     const akiraMessages = document.getElementById("akiraMessages");
@@ -855,23 +893,23 @@
         sendAkiraMessage();
       }
     });
+
     const scrollBtn = document.getElementById("scrollTopBtn");
 
-window.onscroll = function() {
-  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-    scrollBtn.style.display = "block";
-  } else {
-    scrollBtn.style.display = "none";
-  }
-};
+    window.addEventListener("scroll", function () {
+      if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    });
 
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
   </script>
-  <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
 </body>
 </html>
