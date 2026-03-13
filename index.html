@@ -52,6 +52,7 @@
       font-size: 1.1rem;
       font-weight: 700;
       letter-spacing: 0.3px;
+      white-space: nowrap;
     }
 
     .brand span { color: var(--accent); }
@@ -294,6 +295,7 @@
       flex-direction: column;
       gap: 12px;
       margin-bottom: 16px;
+      overflow-y: auto;
     }
 
     .msg {
@@ -420,7 +422,9 @@
     }
 
     @media (max-width: 900px) {
-      .hero, .grid-3, .grid-2 {
+      .hero,
+      .grid-3,
+      .grid-2 {
         grid-template-columns: 1fr;
       }
 
@@ -428,10 +432,61 @@
         padding-top: 48px;
       }
 
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+      }
+
+      .nav-links a {
+        font-size: 0.92rem;
+      }
+
+      h1 {
+        font-size: 2.6rem;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .profile-box {
+        padding: 22px;
+      }
+
       .akira-bubble {
-        right: 16px;
-        bottom: 16px;
+        right: 14px;
+        bottom: 14px;
         padding: 12px 14px;
+        font-size: 0.92rem;
+      }
+
+      .akira-controls {
+        flex-direction: column;
+      }
+
+      .akira-controls input,
+      .akira-controls button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links a[href="#mba"] {
+        display: none;
       }
     }
   </style>
@@ -439,7 +494,7 @@
 <body>
   <nav>
     <div class="container nav-inner">
-      <div class="brand">Akshitha Dharmarathne<span>.</span></div>
+      <div class="brand">Akshitha<span>.</span></div>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -463,10 +518,10 @@
           where I share my background, projects, and future vision.
         </p>
         <div class="cta">
-  <a class="btn primary" href="#projects">Explore My QA Portfolio</a>
-  <a class="btn secondary" href="#akira">Meet AKIRA</a>
-  <a class="btn secondary" href="Akshitha_Dharmarathne_QA_CV.docx" download>Download CV</a>
-</div>
+          <a class="btn primary" href="#projects">Explore My QA Portfolio</a>
+          <a class="btn secondary" href="Akshitha_Dharmarathne_QA_CV.docx" download>Download CV</a>
+          <a class="btn secondary" href="#akira">Meet AKIRA</a>
+        </div>
       </div>
 
       <div class="hero-card profile-box">
@@ -524,30 +579,30 @@
     <section id="projects">
       <h2>QA Portfolio</h2>
       <p class="section-text">
-        A selection of sample QA artifacts, portfolio documents, and future-focused work that reflect my testing approach, documentation style, and professional growth.
+        A selection of sample QA artifacts, portfolio documents, and practical templates that reflect my testing approach, documentation standards, and quality assurance workflow.
       </p>
       <div class="grid-2">
         <div class="card project">
-          <h3>QA Test Case Sample</h3>
-          <p>Example test cases for login functionality showing structured manual testing approach.</p>
-          <a href="nopcommerce-testcases.xlsx" download>Download Test Case Sample</a>
+          <h3>Test Case Template</h3>
+          <p>Structured manual test case template covering scenarios, preconditions, test data, expected results, and execution status.</p>
+          <a href="Test_Case_Template.xlsx" download>Download Test Case Template</a>
         </div>
 
         <div class="card project">
-          <h3>Bug Report Example</h3>
-          <p>Sample defect report showing structured bug tracking with severity, priority and reproduction steps.</p>
-          <a href="bug-report-sample.pdf" download>Download Bug Report Sample</a>
+          <h3>Bug Report Template</h3>
+          <p>Professional defect report template including severity, priority, environment, expected result, and actual result.</p>
+          <a href="Bug_Report_Template.xlsx" download>Download Bug Report Template</a>
         </div>
 
         <div class="card project">
           <h3>SIT Testing Checklist</h3>
-          <p>A structured checklist used during System Integration Testing to validate key workflows and dependencies.</p>
+          <p>A structured checklist used during System Integration Testing to validate dependencies, workflows, and execution readiness.</p>
           <a href="SIT_Testing_Checklist.xlsx" download>Download SIT Checklist</a>
         </div>
 
         <div class="card project">
           <h3>Test Plan Template</h3>
-          <p>A sample QA test plan showing scope, environment, test strategy, entry criteria, and exit criteria.</p>
+          <p>A sample QA test plan showing scope, objectives, test strategy, environment, risks, and deliverables.</p>
           <a href="Test_Plan_Template.pdf" download>Download Test Plan Template</a>
         </div>
       </div>
@@ -635,13 +690,13 @@
 
         <div class="timeline-item">
           <h3>Retail & Corporate Banking Operations</h3>
-          <p><strong>2014 — 2023</strong></p>
+          <p><strong>2014 — 2024</strong></p>
           <p>Worked for about ten years in retail and corporate banking operations. During this time I developed deep knowledge of banking workflows, financial systems, risk awareness, customer operations, and enterprise financial processes.</p>
         </div>
 
         <div class="timeline-item">
           <h3>Software Quality Assurance in Banking Technology</h3>
-          <p><strong>2023 — Present</strong></p>
+          <p><strong>2024 — Present</strong></p>
           <p>Leveraging my banking domain expertise, I transitioned into Software Quality Assurance within the banking technology domain. My focus includes manual testing, system integration testing (SIT), defect reporting, validation of financial transactions, and ensuring high-quality banking software systems.</p>
         </div>
       </div>
