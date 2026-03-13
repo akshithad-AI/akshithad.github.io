@@ -1,568 +1,754 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshitha Dharmarathne | QA Engineer</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --soft: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #f97316;
+      --accent-2: #fb923c;
+      --line: #243041;
+    }
 
-<title>Akshitha Dharmarathne | QA Engineer</title>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-<style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-:root{
---bg:#0f172a;
---card:#111827;
---soft:#1f2937;
---text:#e5e7eb;
---muted:#94a3b8;
---accent:#f97316;
---accent2:#fb923c;
---line:#243041;
-}
+    .container {
+      width: min(1080px, 92%);
+      margin: 0 auto;
+    }
 
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(2, 6, 23, 0.85);
+      border-bottom: 1px solid var(--line);
+    }
 
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:linear-gradient(180deg,#020617 0%,#0f172a 100%);
-color:var(--text);
-line-height:1.6;
-}
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
 
-.container{
-width:min(1080px,92%);
-margin:auto;
-}
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
 
-nav{
-position:sticky;
-top:0;
-z-index:100;
-backdrop-filter:blur(10px);
-background:rgba(2,6,23,.85);
-border-bottom:1px solid var(--line);
-}
+    .brand span { color: var(--accent); }
 
-.nav-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:16px 0;
-}
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
 
-.brand{
-font-weight:700;
-}
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
 
-.brand span{color:var(--accent);}
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
-.nav-links{
-display:flex;
-gap:18px;
-}
+    header {
+      padding: 72px 0 40px;
+    }
 
-.nav-links a{
-color:var(--muted);
-text-decoration:none;
-font-size:.95rem;
-}
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
 
-.nav-links a:hover{color:white;}
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      background: rgba(249, 115, 22, 0.08);
+      color: #fed7aa;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+    }
 
-header{
-padding:70px 0 40px;
-}
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      line-height: 1.1;
+      margin: 0 0 14px;
+    }
 
-.hero{
-display:grid;
-grid-template-columns:1.3fr .9fr;
-gap:28px;
-align-items:center;
-}
+    .highlight { color: var(--accent-2); }
 
-.tag{
-padding:8px 14px;
-border:1px solid rgba(249,115,22,.35);
-background:rgba(249,115,22,.08);
-color:#fed7aa;
-border-radius:999px;
-font-size:.85rem;
-margin-bottom:18px;
-display:inline-block;
-}
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 26px;
+      max-width: 700px;
+    }
 
-h1{
-font-size:3rem;
-margin:0 0 10px;
-}
+    .cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
 
-.highlight{color:var(--accent2);}
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
 
-.hero p{
-color:var(--muted);
-margin-bottom:26px;
-}
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+    }
 
-.cta{
-display:flex;
-gap:14px;
-}
+    .btn.secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
 
-.btn{
-padding:12px 18px;
-border-radius:14px;
-text-decoration:none;
-font-weight:700;
-}
+    .btn:hover { transform: translateY(-2px); }
 
-.primary{
-background:linear-gradient(135deg,var(--accent),var(--accent2));
-color:white;
-}
+    .hero-card, .card {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
 
-.secondary{
-border:1px solid var(--line);
-color:white;
-}
+    .profile-box {
+      text-align: center;
+      padding: 28px;
+    }
 
-.hero-card,.card{
-background:rgba(17,24,39,.8);
-border:1px solid var(--line);
-border-radius:24px;
-padding:24px;
-}
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin: 0 auto 14px;
+      object-fit: cover;
+      display: block;
+    }
 
-.profile-box{text-align:center;}
+    .mini {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-.avatar{
-width:110px;
-height:110px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:10px;
-}
+    section {
+      padding: 26px 0;
+    }
 
-section{
-padding:26px 0;
-}
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
 
-h2{margin-bottom:14px;}
+    .section-text {
+      color: var(--muted);
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
 
-.section-text{
-color:var(--muted);
-max-width:780px;
-margin-bottom:20px;
-}
+    .grid-3, .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
 
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
 
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-}
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
 
-.skill{
-padding:8px 12px;
-border-radius:999px;
-background:rgba(249,115,22,.08);
-color:#fed7aa;
-border:1px solid rgba(249,115,22,.25);
-font-size:.9rem;
-}
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
 
-.project a{
-color:#fdba74;
-text-decoration:none;
-font-weight:600;
-}
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
 
-.timeline{
-border-left:2px solid var(--line);
-padding-left:20px;
-display:grid;
-gap:20px;
-}
+    .skill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(249, 115, 22, 0.08);
+      color: #fed7aa;
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      font-size: 0.9rem;
+    }
 
-.timeline-item::before{
-content:"";
-position:absolute;
-left:-28px;
-width:12px;
-height:12px;
-border-radius:50%;
-background:var(--accent);
-}
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-.akira-preview img{
-width:100%;
-max-width:900px;
-border-radius:20px;
-border:1px solid var(--line);
-}
+    .project a {
+      color: #fdba74;
+      text-decoration: none;
+      font-weight: 700;
+    }
 
-.akira-chat{
-margin-top:24px;
-background:rgba(17,24,39,.8);
-border:1px solid var(--line);
-border-radius:24px;
-padding:20px;
-}
+    .card a {
+      color: #fdba74;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-#akira-chatbox{
-scroll-margin-top:90px;
-}
+    .card a:hover {
+      text-decoration: underline;
+    }
 
-.akira-messages{
-border:1px solid var(--line);
-border-radius:16px;
-padding:14px;
-min-height:200px;
-margin-bottom:12px;
-display:flex;
-flex-direction:column;
-gap:10px;
-}
+    .timeline {
+      border-left: 2px solid var(--line);
+      padding-left: 20px;
+      display: grid;
+      gap: 18px;
+    }
 
-.msg{
-padding:10px 14px;
-border-radius:14px;
-font-size:.95rem;
-max-width:80%;
-}
+    .timeline-item {
+      position: relative;
+    }
 
-.msg.user{
-background:rgba(249,115,22,.15);
-align-self:flex-end;
-}
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
 
-.msg.bot{
-background:rgba(255,255,255,.05);
-align-self:flex-start;
-}
+    .akira-preview {
+      margin-top: 30px;
+      text-align: center;
+    }
 
-.akira-controls{
-display:flex;
-gap:10px;
-}
+    .akira-preview img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+    }
 
-.akira-controls input{
-flex:1;
-padding:12px;
-border-radius:14px;
-border:1px solid var(--line);
-background:rgba(255,255,255,.03);
-color:white;
-}
+    .akira-chat {
+      margin-top: 24px;
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
 
-.akira-controls button{
-padding:12px 16px;
-border:none;
-border-radius:14px;
-background:linear-gradient(135deg,var(--accent),var(--accent2));
-color:white;
-font-weight:700;
-cursor:pointer;
-}
+    #akira-chatbox {
+      scroll-margin-top: 90px;
+    }
 
-.quick-questions{
-margin-top:12px;
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-}
+    .akira-messages {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      min-height: 240px;
+      background: rgba(255,255,255,0.02);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
 
-.quick-btn{
-padding:8px 12px;
-border-radius:12px;
-background:rgba(249,115,22,.1);
-border:1px solid rgba(249,115,22,.25);
-color:#fed7aa;
-cursor:pointer;
-}
+    .msg {
+      padding: 12px 14px;
+      border-radius: 16px;
+      max-width: 85%;
+      font-size: 0.95rem;
+    }
 
-.akira-bubble{
-position:fixed;
-bottom:25px;
-right:25px;
-background:linear-gradient(135deg,#f97316,#fb923c);
-color:white;
-padding:14px 18px;
-border-radius:30px;
-font-weight:700;
-text-decoration:none;
-z-index:999;
-animation:akiraPulse 2.5s infinite;
-}
+    .msg.user {
+      align-self: flex-end;
+      background: rgba(249, 115, 22, 0.15);
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      color: #fed7aa;
+    }
 
-@keyframes akiraPulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.05);}
-100%{transform:scale(1);}
-}
+    .msg.bot {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
 
-footer{
-padding:40px;
-text-align:center;
-color:var(--muted);
-}
+    .akira-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-@media(max-width:900px){
-.hero,.grid-2,.grid-3{grid-template-columns:1fr;}
-}
+    .akira-controls input {
+      flex: 1;
+      min-width: 220px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      outline: none;
+    }
 
-</style>
+    .akira-controls button,
+    .quick-btn {
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+    }
+
+    .quick-questions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .quick-btn {
+      background: rgba(249, 115, 22, 0.12);
+      color: #fed7aa;
+      border: 1px solid rgba(249, 115, 22, 0.25);
+    }
+
+    .quick-btn:hover,
+    .akira-controls button:hover {
+      transform: translateY(-1px);
+    }
+
+    .typing {
+      display: inline-block;
+      width: 40px;
+    }
+
+    .typing span {
+      animation: blink 1.4s infinite both;
+      font-size: 20px;
+    }
+
+    .typing span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes blink {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .akira-bubble {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      color: white;
+      padding: 14px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease;
+      z-index: 999;
+      animation: akiraPulse 2.5s infinite;
+    }
+
+    .akira-bubble:hover {
+      transform: translateY(-3px);
+    }
+
+    @keyframes akiraPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    footer {
+      padding: 36px 0 60px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 48px;
+      }
+
+      .akira-bubble {
+        right: 16px;
+        bottom: 16px;
+        padding: 12px 14px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<nav>
-<div class="container nav-inner">
-<div class="brand">Akshitha<span>.</span></div>
-<div class="nav-links">
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">QA Portfolio</a>
-<a href="#akira">AKIRA</a>
-<a href="#mba">MBA</a>
-<a href="#journey">Journey</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
-</nav>
-
-<header>
-<div class="container hero">
-
-<div>
-<div class="tag">Software QA Engineer • MBA Learner • Future Founder</div>
-<h1>Hi, I'm <span class="highlight">Akshitha Dharmarathne</span></h1>
-
-<p>
-I help teams improve software quality through structured testing,
-analysis, and a growing interest in AI-powered QA.
-</p>
-
-<div class="cta">
-<a class="btn primary" href="#projects">View QA Portfolio</a>
-<a class="btn secondary" href="#akira">Meet AKIRA</a>
-</div>
-</div>
-
-<div class="hero-card profile-box">
-<img src="unnamed.jpg" class="avatar">
-<h3>Akshitha Dharmarathne</h3>
-<div class="mini">Manual QA • Banking Domain • AI Testing Learner</div>
-</div>
-
-</div>
-</header>
-
-<main class="container">
-
-<section id="about">
-<h2>About Me</h2>
-
-<p class="section-text">
-Software QA Engineer with strong banking domain experience.
-Currently completing an MBA and building the future concept of
-<strong>AiQA Labs</strong>.
-</p>
-
-<div class="grid-3">
-
-<div class="card">
-<h3>Professional Focus</h3>
-<p>Manual testing, SIT testing, defect analysis and quality improvement.</p>
-</div>
-
-<div class="card">
-<h3>Learning Path</h3>
-<p>ISTQB, AI testing concepts and strategic leadership through MBA.</p>
-</div>
-
-<div class="card">
-<h3>Future Goal</h3>
-<p>Building AiQA Labs — an AI powered software testing consultancy.</p>
-</div>
-
-</div>
-</section>
-
-<section id="skills">
-<h2>Skills</h2>
-
-<div class="card">
-<div class="skills">
-
-<span class="skill">Manual Testing</span>
-<span class="skill">SIT Testing</span>
-<span class="skill">Banking QA</span>
-<span class="skill">Test Documentation</span>
-<span class="skill">Defect Reporting</span>
-<span class="skill">SQL Basics</span>
-<span class="skill">AI for QA</span>
-
-</div>
-</div>
-</section>
-
-<section id="projects">
-
-<h2>QA Portfolio</h2>
-
-<div class="grid-2">
-
-<div class="card project">
-<h3>QA Test Cases</h3>
-<a href="nopcommerce-testcases.xlsx" download>Download Test Cases</a>
-</div>
-
-<div class="card project">
-<h3>Bug Report Example</h3>
-<a href="bug-report-sample.pdf" download>Download Bug Report</a>
-</div>
-
-<div class="card project">
-<h3>SIT Checklist</h3>
-<a href="sit_testing_checklist.xlsx" download>Download SIT Checklist</a>
-</div>
-
-<div class="card project">
-<h3>Test Plan Template</h3>
-<a href="test_plan_template.pdf" download>Download Test Plan</a>
-</div>
-
-</div>
-</section>
-
-<section id="akira">
-
-<h2>AKIRA AI Assistant</h2>
-
-<div class="card">
-<strong>AKIRA:</strong>
-Hello! I'm AKIRA, Akshitha's portfolio assistant.
-Ask me about his QA experience, banking background,
-MBA journey, or AiQA Labs vision.
-</div>
-
-<div class="akira-preview">
-<img src="akira-preview.png">
-</div>
-
-<div id="akira-chatbox" class="akira-chat">
-
-<h3>🤖 Chat with AKIRA</h3>
-
-<div id="akiraMessages" class="akira-messages">
-<div class="msg bot">Hello! I’m AKIRA. Ask me something.</div>
-</div>
-
-<div class="akira-controls">
-<input id="akiraInput" placeholder="Ask AKIRA something...">
-<button onclick="sendAkiraMessage()">Send</button>
-</div>
-
-<div class="quick-questions">
-<button class="quick-btn" onclick="askQuickQuestion('Who is Akshitha?')">Who is Akshitha?</button>
-<button class="quick-btn" onclick="askQuickQuestion('QA experience')">QA experience</button>
-<button class="quick-btn" onclick="askQuickQuestion('What is AiQA Labs?')">AiQA Labs</button>
-<button class="quick-btn" onclick="askQuickQuestion('MBA journey')">MBA journey</button>
-</div>
-
-</div>
-
-</section>
-
-<section id="contact">
-<h2>Contact</h2>
-
-<div class="card">
-<p><strong>Email:</strong>
-<a href="mailto:akshithadha@gmail.com">akshithadha@gmail.com</a></p>
-
-<p><strong>LinkedIn:</strong>
-<a href="https://www.linkedin.com/in/akshitha-dharmarathne-03614b177/" target="_blank">
-View LinkedIn Profile</a></p>
-
-<p><strong>Location:</strong> Qatar</p>
-</div>
-
-</section>
-
-</main>
-
-<footer>
-© 2026 Akshitha Dharmarathne
-</footer>
-
-<a href="#akira-chatbox" class="akira-bubble"
-onclick="document.getElementById('akira-chatbox').scrollIntoView({behavior:'smooth'});return false;">
-🤖 Chat with AKIRA
-</a>
-
-<script>
-
-const input=document.getElementById("akiraInput");
-const messages=document.getElementById("akiraMessages");
-
-function addMessage(text,type){
-const m=document.createElement("div");
-m.className="msg "+type;
-m.textContent=text;
-messages.appendChild(m);
-messages.scrollTop=messages.scrollHeight;
-}
-
-function getReply(q){
-
-q=q.toLowerCase();
-
-if(q.includes("who"))
-return "Akshitha is a Software QA Engineer with banking domain expertise and an MBA learner building the vision of AiQA Labs.";
-
-if(q.includes("qa"))
-return "He works in Software Quality Assurance focusing on manual testing, SIT testing and defect reporting.";
-
-if(q.includes("bank"))
-return "He has around 10 years experience in retail and corporate banking.";
-
-if(q.includes("mba"))
-return "Akshitha is currently completing his MBA focusing on strategy and leadership.";
-
-if(q.includes("aiqa"))
-return "AiQA Labs is a future AI-powered software testing consultancy he plans to build.";
-
-return "Thanks for your question. I’m still evolving but soon I will become a full AI assistant.";
-}
-
-function sendAkiraMessage(){
-
-const q=input.value.trim();
-if(!q)return;
-
-addMessage(q,"user");
-
-setTimeout(()=>{
-addMessage(getReply(q),"bot");
-},400);
-
-input.value="";
-}
-
-function askQuickQuestion(q){
-input.value=q;
-sendAkiraMessage();
-}
-
-input.addEventListener("keydown",e=>{
-if(e.key==="Enter")sendAkiraMessage();
-});
-
-</script>
-
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">Akshitha<span>.</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">QA Portfolio</a>
+        <a href="#akira">AKIRA</a>
+        <a href="#mba">MBA</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container hero">
+      <div>
+        <div class="tag">Software QA Engineer • MBA Learner • Future Founder</div>
+        <h1>Hi, I'm <span class="highlight">Akshitha Dharmarathne</span>.</h1>
+        <p>
+          I help teams improve software quality through structured testing, careful analysis,
+          and a growing interest in AI-powered QA. This website is my digital portfolio,
+          where I share my background, projects, and future vision.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">Explore My QA Portfolio</a>
+          <a class="btn secondary" href="#akira">Meet AKIRA</a>
+        </div>
+      </div>
+
+      <div class="hero-card profile-box">
+        <img src="unnamed.jpg" class="avatar" alt="Akshitha Dharmarathne">
+        <h3 style="margin-bottom: 6px;">Akshitha Dharmarathne</h3>
+        <div class="mini">Manual QA • Banking Domain • AI Testing Learner</div>
+        <p class="mini" style="margin-top: 14px;">
+          Based in Qatar • Building toward AiQA Labs • Focused on quality, leadership, and growth.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p class="section-text">
+        I am a Software QA Engineer with experience in banking and enterprise systems. I am also completing my MBA and building my long-term vision around AI-powered software testing and digital quality services.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Professional Focus</h3>
+          <p>Manual testing, system integration testing, defect reporting, test evidence preparation, and release support.</p>
+        </div>
+        <div class="card">
+          <h3>Learning Path</h3>
+          <p>ISTQB Foundation, AI testing concepts, automation exposure, and strategic leadership through MBA studies.</p>
+        </div>
+        <div class="card">
+          <h3>Future Goal</h3>
+          <p>To build AiQA Labs into a trusted AI-powered QA and testing consultancy that creates measurable client value.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="section-text">A simple summary of the skills and tools I use or am actively developing.</p>
+      <div class="card">
+        <div class="skills">
+          <span class="skill">Manual Testing</span>
+          <span class="skill">SIT Testing</span>
+          <span class="skill">Defect Reporting</span>
+          <span class="skill">Banking Domain QA</span>
+          <span class="skill">Test Documentation</span>
+          <span class="skill">UAT Support</span>
+          <span class="skill">SQL Basics</span>
+          <span class="skill">JIRA / Tracking Tools</span>
+          <span class="skill">AI for QA</span>
+          <span class="skill">Strategic Thinking</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>QA Portfolio</h2>
+      <p class="section-text">
+        A selection of sample QA artifacts, portfolio documents, and future-focused work that reflect my testing approach, documentation style, and professional growth.
+      </p>
+      <div class="grid-2">
+        <div class="card project">
+          <h3>QA Test Case Sample</h3>
+          <p>Example test cases for login functionality showing structured manual testing approach.</p>
+          <a href="nopcommerce-testcases.xlsx" download>Download Test Case Sample</a>
+        </div>
+
+        <div class="card project">
+          <h3>Bug Report Example</h3>
+          <p>Sample defect report showing structured bug tracking with severity, priority and reproduction steps.</p>
+          <a href="bug-report-sample.pdf" download>Download Bug Report Sample</a>
+        </div>
+
+        <div class="card project">
+          <h3>SIT Testing Checklist</h3>
+          <p>A structured checklist used during System Integration Testing to validate key workflows and dependencies.</p>
+          <a href="sit_testing_checklist.xlsx" download>Download SIT Checklist</a>
+        </div>
+
+        <div class="card project">
+          <h3>Test Plan Template</h3>
+          <p>A sample QA test plan showing scope, environment, test strategy, entry criteria, and exit criteria.</p>
+          <a href="test_plan_template.pdf" download>Download Test Plan Template</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="akira">
+      <h2>AKIRA AI Assistant</h2>
+
+      <div class="card" style="margin-bottom:20px;">
+        <strong>AKIRA:</strong>
+        Hello! I'm AKIRA, Akshitha's portfolio assistant. I can already answer a few common questions about his QA experience, banking background, MBA journey, and future vision.
+      </div>
+
+      <p class="section-text">
+        AKIRA is my upcoming AI-powered portfolio assistant. In the future, visitors will be able to chat with AKIRA to learn about my QA experience, banking domain knowledge, MBA journey, and the vision behind AiQA Labs.
+      </p>
+
+      <div class="akira-preview">
+        <img src="akira-preview.png" alt="Future AKIRA AI Assistant Preview">
+      </div>
+
+      <p class="section-text" style="text-align:center; margin-top:16px;">
+        Future preview of the AKIRA AI assistant interface that will guide visitors through my portfolio and professional journey.
+      </p>
+
+      <div class="grid-2">
+        <div class="card project">
+          <h3>What AKIRA Will Do</h3>
+          <p>AKIRA will answer questions about my professional experience, QA portfolio, banking systems knowledge, and MBA research.</p>
+        </div>
+
+        <div class="card project">
+          <h3>Future Vision</h3>
+          <p>AKIRA will eventually evolve into a real AI assistant that helps visitors explore my work and understand how AI can improve software quality and testing processes.</p>
+        </div>
+      </div>
+
+      <div id="akira-chatbox" class="akira-chat">
+        <h3>🤖 Chat with AKIRA</h3>
+        <div id="akiraMessages" class="akira-messages">
+          <div class="msg bot">Hello! I’m AKIRA. Ask me about Akshitha’s QA experience, banking background, MBA studies, or AiQA Labs vision.</div>
+        </div>
+
+        <div class="akira-controls">
+          <input id="akiraInput" type="text" placeholder="Ask AKIRA something..." />
+          <button onclick="sendAkiraMessage()">Send</button>
+        </div>
+
+        <div class="quick-questions">
+          <button class="quick-btn" onclick="askQuickQuestion('Who is Akshitha?')">Who is Akshitha?</button>
+          <button class="quick-btn" onclick="askQuickQuestion('What QA experience does he have?')">QA experience</button>
+          <button class="quick-btn" onclick="askQuickQuestion('What is AiQA Labs?')">What is AiQA Labs?</button>
+          <button class="quick-btn" onclick="askQuickQuestion('What is his MBA journey?')">MBA journey</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="mba">
+      <h2>MBA Research & Strategy Work</h2>
+      <p class="section-text">
+        Selected academic work covering strategic management, leadership, business analysis, and market evaluation.
+      </p>
+      <div class="grid-2">
+        <div class="card project">
+          <h3>Strategic Management Assignment</h3>
+          <p>Analysis covering competitive strategy, market environment, and business growth frameworks.</p>
+          <a href="#" target="_blank">Add MBA PDF later</a>
+        </div>
+        <div class="card project">
+          <h3>Leadership & Decision-Making Study</h3>
+          <p>Academic work exploring leadership styles, strategic thinking, and decision-making in business contexts.</p>
+          <a href="#" target="_blank">Add MBA PDF later</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <h2>My Journey</h2>
+      <div class="card timeline">
+        <div class="timeline-item">
+          <h3>Audit & Financial Assurance</h3>
+          <p><strong>2012 — 2014</strong></p>
+          <p>Started my professional journey in the audit field, gaining around two years of experience in financial auditing, compliance reviews, documentation verification, and analytical financial analysis. This experience built a strong foundation in attention to detail, controls, and process discipline.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Retail & Corporate Banking Operations</h3>
+          <p><strong>2014 — 2024</strong></p>
+          <p>Worked for about ten years in retail and corporate banking operations. During this time I developed deep knowledge of banking workflows, financial systems, risk awareness, customer operations, and enterprise financial processes.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Software Quality Assurance in Banking Technology</h3>
+          <p><strong>2024 — Present</strong></p>
+          <p>Leveraging my banking domain expertise, I transitioned into Software Quality Assurance within the banking technology domain. My focus includes manual testing, system integration testing (SIT), defect reporting, validation of financial transactions, and ensuring high-quality banking software systems.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="section-text">Feel free to connect with me for QA opportunities, collaborations, or professional networking.</p>
+      <div class="card">
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:akshithadha@gmail.com">akshithadha@gmail.com</a>
+        </p>
+        <p>
+          <strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/akshitha-dharmarathne-03614b177/" target="_blank" rel="noopener noreferrer">View My LinkedIn Profile</a>
+        </p>
+        <p><strong>Location:</strong> Qatar</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Akshitha Dharmarathne • Built as a personal portfolio website.
+    </div>
+  </footer>
+
+  <a href="#akira-chatbox" class="akira-bubble" onclick="document.getElementById('akira-chatbox').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;">🤖 Chat with AKIRA</a>
+
+  <script>
+    const akiraInput = document.getElementById("akiraInput");
+    const akiraMessages = document.getElementById("akiraMessages");
+
+    function addMessage(text, sender) {
+      const msg = document.createElement("div");
+      msg.className = "msg " + sender;
+      msg.textContent = text;
+      akiraMessages.appendChild(msg);
+      akiraMessages.scrollTop = akiraMessages.scrollHeight;
+    }
+
+    function getAkiraReply(question) {
+      const q = question.toLowerCase();
+
+      if (q.includes("who is akshitha")) {
+        return "Akshitha Dharmarathne is a Software QA Engineer with banking domain experience, an MBA learner, and the future founder behind the AiQA Labs vision.";
+      }
+
+      if (q.includes("qa") || q.includes("testing") || q.includes("experience")) {
+        return "Akshitha works in Software Quality Assurance within the banking technology domain, with strengths in manual testing, system integration testing, defect reporting, and test documentation.";
+      }
+
+      if (q.includes("bank") || q.includes("banking")) {
+        return "He has around ten years of retail and corporate banking experience, which gives him strong domain knowledge for financial systems and fintech-related QA work.";
+      }
+
+      if (q.includes("mba")) {
+        return "Akshitha is also completing his MBA, with work focused on strategic management, leadership, business analysis, and long-term growth thinking.";
+      }
+
+      if (q.includes("aiqa") || q.includes("labs")) {
+        return "AiQA Labs is Akshitha’s future vision for an AI-powered software testing and quality consultancy focused on combining human QA expertise with modern AI capabilities.";
+      }
+
+      if (q.includes("audit")) {
+        return "Before banking and QA, Akshitha began his career in audit and financial assurance, where he built strong analytical thinking and attention to detail.";
+      }
+
+      if (q.includes("contact") || q.includes("email") || q.includes("linkedin")) {
+        return "You can contact Akshitha via email at akshithadha@gmail.com or through his LinkedIn profile in the Contact section of this website.";
+      }
+
+      return "Thanks for your question. Right now I’m a portfolio assistant with built-in answers. Soon I’ll become a more advanced AI assistant for Akshitha’s website.";
+    }
+
+    function sendAkiraMessage() {
+      const question = akiraInput.value.trim();
+      if (!question) return;
+
+      addMessage(question, "user");
+
+      const typing = document.createElement("div");
+      typing.className = "msg bot";
+      typing.innerHTML = '<div class="typing"><span>.</span><span>.</span><span>.</span></div>';
+
+      akiraMessages.appendChild(typing);
+      akiraMessages.scrollTop = akiraMessages.scrollHeight;
+
+      akiraInput.value = "";
+
+      setTimeout(() => {
+        typing.remove();
+        const reply = getAkiraReply(question);
+        addMessage(reply, "bot");
+      }, 1200);
+    }
+
+    function askQuickQuestion(question) {
+      akiraInput.value = question;
+      sendAkiraMessage();
+    }
+
+    akiraInput.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        sendAkiraMessage();
+      }
+    });
+  </script>
 </body>
 </html>
