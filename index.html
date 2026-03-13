@@ -76,7 +76,26 @@
     header {
       padding: 72px 0 40px;
     }
+#scrollTopBtn {
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  display: none;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  z-index: 998;
+}
 
+#scrollTopBtn:hover {
+  transform: scale(1.1);
+}
     .hero {
       display: grid;
       grid-template-columns: 1.3fr 0.9fr;
@@ -836,6 +855,23 @@
         sendAkiraMessage();
       }
     });
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function() {
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+};
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
   </script>
+  <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
 </body>
 </html>
