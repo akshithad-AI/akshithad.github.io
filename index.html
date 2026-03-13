@@ -97,6 +97,15 @@
 .akira-bubble:hover {
   transform: translateY(-3px);
 }
+    @keyframes akiraPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.akira-bubble {
+  animation: akiraPulse 2.5s infinite;
+}
     .hero {
       display: grid;
       grid-template-columns: 1.3fr 0.9fr;
@@ -409,6 +418,11 @@
       </div>
     </section>
     <section id="akira">
+      <div class="card" style="margin-top:20px;">
+  <strong>AKIRA:</strong> 
+  Hello! I'm AKIRA, Akshitha's future AI portfolio assistant. 
+  Soon you'll be able to chat with me to explore his QA work, MBA research, and AiQA Labs vision.
+</div>
   <h2>AKIRA AI Assistant</h2>
   <p class="section-text">
     AKIRA is my upcoming AI-powered portfolio assistant. In the future, visitors will be able to chat with AKIRA to learn about my QA experience, banking domain knowledge, MBA journey, and the vision behind AiQA Labs.
