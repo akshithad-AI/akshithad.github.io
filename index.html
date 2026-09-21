@@ -596,7 +596,7 @@
 
       <div class="hero-card profile-box">
         <img src="unnamed.png" class="avatar" alt="Akshitha Dharmarathne">
-        <h3 style="margin-bottom: 8px;">Akshitha Dharmarathne</h3>
+        <h3 style="margin-bottom: 6px;">Akshitha Dharmarathne</h3>
         <div class="mini">Manual QA • Banking Domain • AI Testing Learner</div>
         <p class="mini" style="margin-top: 14px;">
           Based in Qatar • Building toward AiQA Labs • Focused on quality, leadership, and growth.
@@ -722,54 +722,13 @@
     </section>
 
     <section id="akira">
-      <h2>AKIRA AI Assistant</h2>
-
-      <div class="card" style="margin-bottom:20px;">
-        <strong>AKIRA:</strong>
-        Hello! I'm AKIRA, Akshitha's portfolio assistant. I can already answer a few common questions about his QA experience, banking background, MBA journey, and future vision.
-      </div>
-
+      <h2>AKIRA — AI QA Assistant</h2>
       <p class="section-text">
-        AKIRA is my upcoming AI-powered portfolio assistant. In the future, visitors will be able to chat with AKIRA to learn about my QA experience, banking domain knowledge, MBA journey, and the vision behind AiQA Labs.
+        AKIRA is my AI-powered QA assistant — it drafts manual test cases, bug reports, and test plans in seconds. Built and running live using Claude.
       </p>
-
-      <div class="akira-preview">
-        <img src="akira-preview.png" alt="Future AKIRA AI Assistant Preview">
-      </div>
-
-      <p class="section-text" style="text-align:center; margin-top:16px;">
-        Future preview of the AKIRA AI assistant interface that will guide visitors through my portfolio and professional journey.
-      </p>
-
-      <div class="grid-2">
-        <div class="card project">
-          <h3>What AKIRA Will Do</h3>
-          <p>AKIRA will answer questions about my professional experience, QA portfolio, banking systems knowledge, and MBA research.</p>
-        </div>
-
-        <div class="card project">
-          <h3>Future Vision</h3>
-          <p>AKIRA will eventually evolve into a real AI assistant that helps visitors explore my work and understand how AI can improve software quality and testing processes.</p>
-        </div>
-      </div>
-
-      <div id="akira-chatbox" class="akira-chat">
-        <h3>🤖 Chat with AKIRA</h3>
-        <div id="akiraMessages" class="akira-messages">
-          <div class="msg bot">Hello! I’m AKIRA. Ask me about Akshitha’s QA experience, banking background, MBA studies, or AiQA Labs vision.</div>
-        </div>
-
-        <div class="akira-controls">
-          <input id="akiraInput" type="text" placeholder="Ask AKIRA something..." />
-          <button onclick="sendAkiraMessage()">Send</button>
-        </div>
-
-        <div class="quick-questions">
-          <button class="quick-btn" onclick="askQuickQuestion('Who is Akshitha?')">Who is Akshitha?</button>
-          <button class="quick-btn" onclick="askQuickQuestion('What QA experience does he have?')">QA experience</button>
-          <button class="quick-btn" onclick="askQuickQuestion('What is AiQA Labs?')">What is AiQA Labs?</button>
-          <button class="quick-btn" onclick="askQuickQuestion('What is his MBA journey?')">MBA journey</button>
-        </div>
+      <div class="card" style="text-align:center;">
+        <p style="margin-bottom:20px;">Try it yourself — paste in a requirement or a bug description and see what AKIRA drafts.</p>
+        <a class="btn primary" href="akira.html" target="_blank" rel="noopener noreferrer">Open AKIRA</a>
       </div>
     </section>
 
@@ -838,89 +797,11 @@
     </div>
   </footer>
 
-  <a href="#akira-chatbox" class="akira-bubble" onclick="document.getElementById('akira-chatbox').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;">🤖 Chat with AKIRA</a>
+  <a href="akira.html" target="_blank" rel="noopener noreferrer" class="akira-bubble">🤖 Try AKIRA</a>
 
   <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
 
   <script>
-    const akiraInput = document.getElementById("akiraInput");
-    const akiraMessages = document.getElementById("akiraMessages");
-
-    function addMessage(text, sender) {
-      const msg = document.createElement("div");
-      msg.className = "msg " + sender;
-      msg.textContent = text;
-      akiraMessages.appendChild(msg);
-      akiraMessages.scrollTop = akiraMessages.scrollHeight;
-    }
-
-    function getAkiraReply(question) {
-      const q = question.toLowerCase();
-
-      if (q.includes("who is akshitha")) {
-        return "Akshitha Dharmarathne is a Software QA Engineer with banking domain experience, an MBA learner, and the future founder behind the AiQA Labs vision.";
-      }
-
-      if (q.includes("qa") || q.includes("testing") || q.includes("experience")) {
-        return "Akshitha works in Software Quality Assurance within the banking technology domain, with strengths in manual testing, system integration testing, defect reporting, and test documentation.";
-      }
-
-      if (q.includes("bank") || q.includes("banking")) {
-        return "He has around ten years of retail and corporate banking experience, which gives him strong domain knowledge for financial systems and fintech-related QA work.";
-      }
-
-      if (q.includes("mba")) {
-        return "Akshitha is also completing his MBA, with work focused on strategic management, leadership, business analysis, and long-term growth thinking.";
-      }
-
-      if (q.includes("aiqa") || q.includes("labs")) {
-        return "AiQA Labs is Akshitha’s future vision for an AI-powered software testing and quality consultancy focused on combining human QA expertise with modern AI capabilities.";
-      }
-
-      if (q.includes("audit")) {
-        return "Before banking and QA, Akshitha began his career in audit and financial assurance, where he built strong analytical thinking and attention to detail.";
-      }
-
-      if (q.includes("contact") || q.includes("email") || q.includes("linkedin")) {
-        return "You can contact Akshitha via email at akshithadha@gmail.com or through his LinkedIn profile in the Contact section of this website.";
-      }
-
-      return "Thanks for your question. Right now I’m a portfolio assistant with built-in answers. Soon I’ll become a more advanced AI assistant for Akshitha’s website.";
-    }
-
-    function sendAkiraMessage() {
-      const question = akiraInput.value.trim();
-      if (!question) return;
-
-      addMessage(question, "user");
-
-      const typing = document.createElement("div");
-      typing.className = "msg bot";
-      typing.innerHTML = '<div class="typing"><span>.</span><span>.</span><span>.</span></div>';
-
-      akiraMessages.appendChild(typing);
-      akiraMessages.scrollTop = akiraMessages.scrollHeight;
-
-      akiraInput.value = "";
-
-      setTimeout(() => {
-        typing.remove();
-        const reply = getAkiraReply(question);
-        addMessage(reply, "bot");
-      }, 1200);
-    }
-
-    function askQuickQuestion(question) {
-      akiraInput.value = question;
-      sendAkiraMessage();
-    }
-
-    akiraInput.addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {
-        sendAkiraMessage();
-      }
-    });
-
     const scrollBtn = document.getElementById("scrollTopBtn");
 
     window.addEventListener("scroll", function () {
